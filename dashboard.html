@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Plot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Set a fixed size for the canvas */
+        #pointChart {
+            width: 600px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <canvas id="pointChart"></canvas>
+    </div>
+    <script>
+        // Data placeholder (to be replaced by Python)
+        var pointsData = {{points}};
+
+        // Extract X and Y values from the points data
+        var xValues = pointsData.map(function(point) { return point[0]; });
+        var yValues = pointsData.map(function(point) { return point[1]; });
+
+        // Setup the chart
+        var ctx = document.getElementById('pointChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Points',
+                    data: pointsData.map(function(point) { return {x: point[0], y: point[1]}; }),
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,  // Prevent the chart from scaling dynamically
+                responsive: false,  // Disable responsiveness to keep fixed size
+                scales: {
+                    x: { type: 'linear', position: 'bottom' },
+                    y: { type: 'linear' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
