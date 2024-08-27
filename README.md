@@ -1,5 +1,5 @@
-# ghpython-webview (template)
+# GHPython Webview (Template)
 
-**run nice looking dashboards on grasshopper built using html, css and javascript**
+**Run nice looking dashboards on Grasshopper built using HTML, CSS and JavaScript**
 
 ![](sample_webview.png)
